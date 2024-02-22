@@ -5,7 +5,26 @@ export default defineConfig({
   access: {},
   model: {},
   initialState: {},
-  request: {},
+  request: {
+    dataField: '',
+  },
+  proxy: {
+    '/api/cat': {
+      target: 'https://cat-fact.herokuapp.com/',
+      changeOrigin: true,
+      pathRewrite: { '^/api/cat': '' },
+    },
+    '/api/dog': {
+      target: 'https://dog.ceo/api/breeds/list/all/',
+      changeOrigin: true,
+      pathRewrite: { '^/api/dog': '' },
+    },
+    '/api/pet-food': {
+      target: 'https://world.openpetfoodfacts.org/api/v0/product/20106836.json',
+      changeOrigin: true,
+      pathRewrite: { '^/api/pet-food': '' },
+    },
+  },
   layout: {
     title: '@umijs/max',
   },
@@ -32,4 +51,3 @@ export default defineConfig({
   ],
   npmClient: 'pnpm',
 });
-
