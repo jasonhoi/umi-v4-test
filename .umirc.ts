@@ -15,7 +15,7 @@ export default defineConfig({
       pathRewrite: { '^/api/cat': '' },
     },
     '/api/dog': {
-      target: 'https://dog.ceo/api/breeds/list/all/',
+      target: 'https://dog.ceo/api/breeds/list/all',
       changeOrigin: true,
       pathRewrite: { '^/api/dog': '' },
     },
